@@ -1,0 +1,24 @@
+<app-header [data]="receivedData" (searchText)="searchText($event)" ></app-header>
+<br>
+<mat-progress-spinner class="center" mode="indeterminate" *ngIf="isloading" color="primary"></mat-progress-spinner>
+<div class="dashboard">
+  <div *ngIf="notFound">
+    <h2>Product Not Found</h2>
+  </div>
+  <div class="item" *ngFor="let product of products" TrackBy="product.id">
+    <div *ngIf="!notFound" class="card">
+      <img class="thumbnail" [src]="product.thumbnailUrl" alt="Product Thumbnail">
+      <h3 class="title">{{ product.title }}</h3>
+      <a [routerLink]="['/photos', product.id]">
+        View Details
+      </a>
+    </div>
+  </div>
+</div>
+<div>
+<app-footer></app-footer>
+</div>
+
+
+
+

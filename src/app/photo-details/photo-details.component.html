@@ -1,0 +1,7 @@
+<div *ngIf="photo">
+  <h2>{{ photo.title }}</h2>
+  <img [src]="photo.url" alt="Photo Image">
+  <h2>Album ID: {{ photo.albumId }}</h2>
+  <h2>Photo ID: {{ photo.id }}</h2>
+</div>
+<app-footer></app-footer>
