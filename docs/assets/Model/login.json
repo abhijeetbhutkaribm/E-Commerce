@@ -1,0 +1,42 @@
+[
+  {
+    "email": "hello.world@example.com",
+    "mobile": "9923099538"
+  },
+  {
+    "email": "jane.doe@example.com",
+    "mobile": "9876543210"
+  },
+  {
+    "email": "alex.smith@example.com",
+    "mobile": "9876543211"
+  },
+  {
+    "email": "sarah.jones@example.com",
+    "mobile": "9998887798"
+  },
+  {
+    "email": "michael.brown@example.com",
+    "mobile": "1112223333"
+  },
+  {
+    "email": "emily.davis@example.com",
+    "mobile": "4445556666"
+  },
+  {
+    "email": "ryan.wilson@example.com",
+    "mobile": "7778889999"
+  },
+  {
+    "email": "laura.johnson@example.com",
+    "mobile": "2223334444"
+  },
+  {
+    "email": "adam.anderson@example.com",
+    "mobile": "6667778888"
+  },
+  {
+    "email": "olivia.miller@example.com",
+    "mobile": "4448882222"
+  }
+]
