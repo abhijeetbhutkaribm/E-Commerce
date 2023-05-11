@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  isAuthenticate: boolean = false;
+  $isAuthenticate: Observable<boolean>
+  private Authflag=new Subject<any>()
 
-  login(email: string, mobile: string): Observable<boolean> {
-    if (email === 'admin@gmail.com' && mobile === 'admin') {
-      this.isAuthenticate = true;
-      return of(true);
-    }
-    return of(false);
-  }
+  constructor() {
+    this.$isAuthenticate=this.Authflag.asObservable();
+   }
 
-  constructor() { }
+   authMethod(data){
+    console.log(data)
+    this.Authflag.next(data);
+   }
 }

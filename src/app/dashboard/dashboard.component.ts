@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductapiService } from '../productapi.service';
 import { DataSharingService } from '../data-sharing.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,13 +20,17 @@ export class DashboardComponent {
 
   constructor(
     private apiService: ProductapiService,
-    private dataSharingService: DataSharingService
+    private dataSharingService: DataSharingService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
     this.dataSharingService.getData().subscribe((data) => {
       console.log('Subject Data', data);
       this.receivedData = data;
+      if(!this.receivedData.authenticationFlag){
+        this.router.navigate(['/login']);
+      }
     });
     this.apiService.getdata().subscribe((res) => {
       this.products = res;

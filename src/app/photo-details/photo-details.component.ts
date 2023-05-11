@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductapiService } from '../productapi.service';
+import { DataSharingService } from '../data-sharing.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-photo-details',
@@ -10,12 +12,22 @@ import { ProductapiService } from '../productapi.service';
 export class PhotoDetailsComponent implements OnInit {
   photo: any;
   ApiDetails: any;
+  receivedData: any;
 
   constructor(
     private route: ActivatedRoute,
-    private apiService: ProductapiService
+    private apiService: ProductapiService,
+    private dataSharingService: DataSharingService,
+    private router: Router,
   ) {}
   ngOnInit(): void {
+    this.dataSharingService.getData().subscribe((data) => {
+      console.log('Subject Data', data);
+      this.receivedData = data;
+      if(!this.receivedData.authenticationFlag){
+        this.router.navigate(['/login']);
+      }
+    });
     this.route.params.subscribe((params) => {
       this.apiService.getdata().subscribe((res) => {
         console.log('Responce for photo', res);

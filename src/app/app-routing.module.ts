@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PhotoDetailsComponent } from './photo-details/photo-details.component';
 import { PhotoDetailsModule } from '././photo-details/photo-details/photo-details.module';
-import { authGuard } from 'src/auth.guard';
+import { authGuard } from './photo-details/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
